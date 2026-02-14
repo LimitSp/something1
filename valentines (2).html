@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day Gabriel ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+
+        h1 {
+            color: white;
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeIn 1s ease-in;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            background: linear-gradient(45deg, #ff6b6b, #ff8787);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            animation: fadeIn 1s ease-in 0.5s backwards;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .button:active {
+            transform: translateY(-1px);
+        }
+
+        .message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: white;
+            padding: 60px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            z-index: 1001;
+            opacity: 0;
+            transition: all 0.5s ease;
+            visibility: hidden;
+        }
+
+        .message.show {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .message h2 {
+            color: #ff6b6b;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .message p {
+            color: #764ba2;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .heartfelt-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: white;
+            padding: 40px 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            z-index: 1001;
+            opacity: 0;
+            transition: all 0.5s ease;
+            max-width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            visibility: hidden;
+        }
+
+        .heartfelt-message.show {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .heartfelt-message p {
+            color: #333;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            text-align: left;
+            margin: 0;
+        }
+
+        .heartfelt-message .signature {
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .heart {
+            position: fixed;
+            font-size: 3rem;
+            animation: float 4s ease-in forwards;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            z-index: 999;
+        }
+
+        .overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+                padding: 0 20px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                gap: 15px;
+                padding: 0 20px;
+            }
+
+            .button {
+                padding: 15px 40px;
+                font-size: 1.2rem;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .message {
+                padding: 40px 30px;
+                width: 90%;
+                max-width: 400px;
+            }
+
+            .message h2 {
+                font-size: 2rem;
+            }
+
+            .message p {
+                font-size: 1.5rem;
+            }
+
+            .heartfelt-message {
+                padding: 30px 25px;
+                width: 90%;
+                max-width: 500px;
+            }
+
+            .heartfelt-message p {
+                font-size: 1.1rem;
+                line-height: 1.6;
+            }
+
+            .heartfelt-message .signature {
+                font-size: 1.3rem;
+            }
+
+            .heart {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .message {
+                padding: 30px 20px;
+            }
+
+            .message h2 {
+                font-size: 1.5rem;
+            }
+
+            .message p {
+                font-size: 1.2rem;
+            }
+
+            .heartfelt-message {
+                padding: 25px 20px;
+            }
+
+            .heartfelt-message p {
+                font-size: 1rem;
+            }
+
+            .heartfelt-message .signature {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello Gabriel 💕</h1>
+        <div class="buttons">
+            <button class="button" onclick="celebrate()" ontouchstart="celebrate()">Press Me</button>
+            <button class="button" onclick="showHeartfeltMessage()" ontouchstart="showHeartfeltMessage()">Press Me</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closeMessage()" ontouchstart="closeMessage()"></div>
+    
+    <div class="message" id="message">
+        <h2>Happy Valentine's Day!</h2>
+        <p>I Love You A Lot! ❤️💕💖</p>
+    </div>
+
+    <div class="heartfelt-message" id="heartfeltMessage">
+        <p>
+            Hey, I know a lot has happened to you over the past months or even years, but just know that you are strong and will get through any obstacle. You will achieve so much that you didn't know you will achieve, and I have hope and faith that you will reach where you need to be with or without me. I'm so thankful that I know you and get to know you even more. No matter wah woulda gwan between me and you, mi aguh always deh yah fi yuh. Please tek care a yuh self.
+        </p>
+        <p class="signature">Mi love yuh and Happy Valentine's Day ❤️</p>
+    </div>
+
+    <script>
+        const colors = ['#ff6b6b', '#ff8787', '#ffa5a5', '#ffc4c4', '#ff4757', '#ff6348', '#ff9ff3', '#f368e0', '#ee5a6f', '#ff7979'];
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = '❤️';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = window.innerHeight + 'px';
+            heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            heart.style.fontSize = (Math.random() * 2 + 2) + 'rem';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        function celebrate() {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            // Show overlay and message
+            document.getElementById('overlay').classList.add('show');
+            document.getElementById('message').classList.add('show');
+            
+            // Hide heartfelt message if it's showing
+            document.getElementById('heartfeltMessage').classList.remove('show');
+            
+            // Create hearts explosion
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    createHeart();
+                }, i * 50);
+            }
+            
+            // Continue creating hearts for a while
+            let heartInterval = setInterval(createHeart, 200);
+            setTimeout(() => {
+                clearInterval(heartInterval);
+            }, 5000);
+        }
+
+        function showHeartfeltMessage() {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            // Show overlay and heartfelt message
+            document.getElementById('overlay').classList.add('show');
+            document.getElementById('heartfeltMessage').classList.add('show');
+            
+            // Hide Valentine's message if it's showing
+            document.getElementById('message').classList.remove('show');
+            
+            // Create some hearts
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    createHeart();
+                }, i * 100);
+            }
+        }
+
+        function closeMessage() {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            document.getElementById('overlay').classList.remove('show');
+            document.getElementById('message').classList.remove('show');
+            document.getElementById('heartfeltMessage').classList.remove('show');
+        }
+    </script>
+</body>
+</html>
